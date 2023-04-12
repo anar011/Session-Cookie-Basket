@@ -16,6 +16,8 @@ namespace EntityFramework_Slider.Controllers
             _context = context;
         }
 
+
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             ////Cookie////Session-START
@@ -57,7 +59,8 @@ namespace EntityFramework_Slider.Controllers
             return View(model);
         }
 
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult>  AddBasket(int? id)
         {
             if (id is null) return BadRequest();
